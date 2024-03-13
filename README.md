@@ -33,3 +33,6 @@ npm run build
 ```sh
 npm run lint
 ```
+
+# vueJs-pinia
+Interaction avec pinia: gestion des états

@@ -11,14 +11,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import ProductInfo from './product-info/ProductInfo.vue'
 import products from './product-data.js'
+import { useCartStore } from '@/stores/cart'
 
-const cart = ref([])
+const cartStore = useCartStore()
 
 function addToCart(product) {
-  cart.value.push({ ...product })
+  const newCart = [...cartStore.cart, product]
+  cartStore.cart = newCart
+  // cartStore.cart.push({ ...product })
+  //console.log(cartStore.cart.length)
+  // cartStore.$patch({
+  //   cart: newCart,
+  //   foo: 'whatever',
+  // })
+  cartStore.$patch((state) => {
+    state.cart.push({ ...product })
+  })
 }
 </script>
 

@@ -16,13 +16,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
 import { toCurrency } from '@/shared/formatters'
 import ProductInfo from '@/catalog/product-info/ProductInfo.vue'
-import products from '@/catalog/product-data.js'
+import { useCartStore } from '@/stores/cart'
 
-const cart = ref([{ ...products[10] }, { ...products[3] }])
-const cartTotal = ref(0)
+let { cart, cartTotal } = storeToRefs(useCartStore())
 
 function removeFromCart(product) {
   cart.value = cart.value.filter((p) => p !== product)

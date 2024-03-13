@@ -1,7 +1,7 @@
 import { ref, computed, onMounted } from 'vue'
 
 export default function usePagination(filteredSearchResults) {
-  const pageSize = 5
+  const pageSize = 4
   const currentPage = ref(1)
   const nextPage = () => { currentPage.value += 1 }
   const prevPage = () => { currentPage.value -= 1 }

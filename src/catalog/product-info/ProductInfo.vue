@@ -51,13 +51,13 @@ defineProps({
 }
 
 .product .name {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 .product .description {
   margin-top: 3px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .product .category {
@@ -68,7 +68,7 @@ defineProps({
 .product .price {
   display: flex;
   flex-direction: column;
-  font-size: 25px;
+  font-size: 18px;
   justify-content: space-around;
   align-items: center;
   min-width: 190px;
@@ -84,6 +84,6 @@ defineProps({
 
 .strikethrough {
   text-decoration: line-through;
-  font-size: 18px;
+  font-size: 15px;
 }
 </style>

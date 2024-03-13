@@ -35,6 +35,9 @@ import ProductInfo from '@/catalog/product-info/ProductInfo.vue'
 import useSearch from './useSearch'
 import useFilters from './useFilters'
 import usePagination from './usePagination'
+import { useCartStore } from '@/stores/cart'
+
+const cartStore = useCartStore()
 
 const searchTerm = ref('')
 const { searchResults } = useSearch(searchTerm)
@@ -66,6 +69,12 @@ function getClass(category) {
 }
 
 const resultCount = computed(() => filteredResults.value.length)
+
+function addToCart(product) {
+  cartStore.cart.push({ ...product })
+  console.log(cartStore.cart.length)
+}
+
 </script>
 
 <style scoped>
@@ -74,7 +83,7 @@ const resultCount = computed(() => filteredResults.value.length)
 }
 
 input {
-  font-size: 22px;
+  font-size: 16px;
   padding: 8px;
   width: 100%;
   box-sizing: border-box;
@@ -103,23 +112,23 @@ img {
 }
 
 button {
-  width: 150px;
+  width: 130px;
 }
 
 .filters {
   margin-top: 10px;
   display: flex;
-  font-size: 18px;
+  font-size: 14px;
   align-items: center;
 }
 
 .filters-text {
-  font-size: 25px;
+  font-size: 20px;
   color: #777;
 }
 
 .filters button {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .filters>* {
